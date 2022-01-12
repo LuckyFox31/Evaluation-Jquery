@@ -80,5 +80,36 @@ $(() => {
 
 	jumbotron();
 
-	function jumbotron() {}
+	function jumbotron() {
+		// Question 1
+		$("#samplenav ul li a").click(function (e) {
+			e.preventDefault();
+		});
+
+		// Question 2
+		$("#samplenav ul").addClass("list-group");
+		$("#samplenav ul li").addClass("list-group-item");
+
+		// Question 3
+		$("#samplenav a")
+			.siblings("ul")
+			.parent()
+			.children("a")
+			.prepend('<i class="fa fa-plus-circle"></i> ');
+
+		// Question 4
+		$(".jumbotron p i").text(`${$(".jumbotron").attr("data-source")}`);
+
+		// Question 5
+		// Le siblings() ne voulait pas fonctionner.
+		$(".team")
+			.parent()
+			.parent()
+			.parent()
+			.parent()
+			.children("li:nth-child(2)")
+			.children("ul")
+			.children("li:nth-child(2)")
+			.addClass(".list-group-item-success");
+	}
 });
